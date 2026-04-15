@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Benna – All Artisan Products</title>
+    <meta name="description"
+        content="Explore the full collection of Benna healthy bites – handcrafted in Tunisia with pure, natural ingredients." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Benna – Boutique saine & artisanale</title>
+    <meta name="description"
+        content="Produits healthy sans gluten, sans lactose, vegan – livraison rapide depuis la Tunisie." />
+    <!-- Google Fonts + Font Awesome -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="styleP.css" />
+</head>
+
+<body>
+
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><img src="pics/logo.jpeg" alt="Benna Logo"
+                    class="nav-logo-img" />Benna</a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#story">Story</a>
+                <a href="index.html#reviews">Reviews</a>
+                <a href="index.html#contact">Contact</a>
+
+            </div>
+            <div class="nav-links2" id="navLinks2">
+
+                <a href="index.html#shop" class="nav-join">
+                    <strong>Shop Now</strong>
+                    <span class="star-1"></span><span class="star-2"></span><span class="star-3"></span>
+                    <span class="star-4"></span><span class="star-5"></span><span class="star-6"></span>
+
+                </a>
+                <a href="login.html" class="nav-join"> <strong>Join the Circle </strong>
+                    <span class="star-1"></span><span class="star-2"></span><span class="star-3"></span>
+                    <span class="star-4"></span><span class="star-5"></span><span class="star-6"></span>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <div class="toggle-container">
+                    <div class="toggle-wrap">
+                        <input class="toggle-input" id="holo-toggle" type="checkbox" />
+                        <label class="toggle-track" for="holo-toggle">
+                            <div class="toggle-thumb"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="hero-shop">
+        <div class="container"><br><br>
+            <h1>Découvrez nos produits sains 🌿</h1>
+            <p>Adaptés à votre régime : sans gluten, sans lactose, vegan, bio – faits maison avec amour.</p>
+            <button class="btn-shopnow" id="scrollToProducts">Shop Now 🛒</button>
+        </div>
+    </section>
+
+    <div class="container shop-layout">
+        <!-- SIDEBAR FILTRES INTELLIGENTS -->
+        <aside class="filters-sidebar">
+            <h3><i class="fas fa-sliders-h"></i> Filtres</h3>
+            <div class="filter-group">
+                <h4><i class="fas fa-leaf"></i> Régime</h4>
+                <label><input type="checkbox" class="diet-filter" data-filter="glutenFree"> Sans gluten</label>
+                <label><input type="checkbox" class="diet-filter" data-filter="lactoseFree"> Sans lactose</label>
+                <label><input type="checkbox" class="diet-filter" data-filter="sugarFree"> Sans sucre ajouté</label>
+                <label><input type="checkbox" class="diet-filter" data-filter="bio"> Bio</label>
+                <label><input type="checkbox" class="diet-filter" data-filter="vegan"> Vegan</label>
+            </div>
+            <div class="filter-group">
+                <h4>💰 Prix (TND)</h4>
+                <div class="price-inputs">
+                    <input type="number" id="minPrice" placeholder="Min" value="0">
+                    <span>-</span>
+                    <input type="number" id="maxPrice" placeholder="Max" value="50">
+                </div>
+            </div>
+            <div class="filter-group">
+                <h4>📂 Catégorie</h4>
+                <select id="categoryFilter">
+                    <option value="all">Toutes</option>
+                    <option value="Cookies">Cookies</option>
+                    <option value="Bars">Barres</option>
+                    <option value="Bread">Pain artisanal</option>
+                    <option value="Snacks">Snacks salés</option>
+                </select>
+            </div>
+            <button class="reset-filters" id="resetFilters">Réinitialiser les filtres</button>
+        </aside>
+
+        <div class="products-area">
+            <div class="top-bar">
+                <div><strong id="resultCount">12</strong> produits</div>
+                <select id="sortSelect" class="sort-select">
+                    <option value="default">Trier par</option>
+                    <option value="price_asc">Prix croissant</option>
+                    <option value="price_desc">Prix décroissant</option>
+                    <option value="popularite">Plus populaires (note)</option>
+                    <option value="nouveaute">Nouveautés</option>
+                </select>
+            </div>
+
+            <div id="productsGrid" class="products-grid"></div>
+
+            <!-- PAGINATION -->
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </div>
+
+    <!-- SECTION BOX PERSONNALISÉES -->
+    <div class="container custom-box">
+        <h2>✨ Créez votre box personnalisée ✨</h2>
+        <p>Choisissez vos 6 snacks préférés, recevez une boîte unique livrée chez vous.</p>
+        <a href="#" class="btn-box">Composer ma box →</a>
+    </div>
+
+    <!-- SECTION CONFIANCE -->
+    <div class="container trust-icons">
+        <div class="trust-item"><i class="fas fa-home"></i><br />100% fait maison</div>
+        <div class="trust-item"><i class="fas fa-allergies"></i><br />Allergènes contrôlés</div>
+        <div class="trust-item"><i class="fas fa-truck"></i><br />Livraison rapide 24/48h</div>
+        <div class="trust-item"><i class="fas fa-seedling"></i><br />Ingrédients naturels</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                <h4>Benna</h4>
+                <p>Artisan healthy food 🇹🇳</p>
+            </div>
+            <div>
+                <h4>Contact</h4>contact@benna.tn<br />+216 71 234 567
+            </div>
+            <div>
+                <h4>Suivez-nous</h4>
+                <div class="social"><i class="fab fa-instagram"></i><i class="fab fa-facebook"></i><i
+                        class="fab fa-tiktok"></i></div>
+            </div>
+            <div><a href="#">FAQ</a> | <a href="#">Livraison</a></div>
+        </div>
+        <div class="container" style="text-align:center; margin-top: 30px;">© 2026 Benna – Tous droits réservés</div>
+    </footer>
+
+    <a href="#" class="floating-cart" id="floatingCartBtn" aria-label="View cart">
+        <span class="floating-cart-icon">🛒</span>
+        <span class="floating-cart-count" id="cartCount">0</span>
+    </a>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-modal">
+            <div class="cart-modal-header">
+                <h3>Mon Panier</h3>
+                <button class="cart-close" id="cartClose" aria-label="Close cart">&times;</button>
+            </div>
+            <div class="cart-modal-body">
+                <p class="cart-empty-msg">Vous avez <span id="cartModalCount">0</span> article(s) dans votre panier.</p>
+            </div>
+            <div class="cart-modal-footer">
+                <a href="panier.html" class="nav-join view-cart-btn">Voir tout le panier</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+<script>
+    // ---------- PRODUCT DATA (extended collection) ----------
+    const allProducts = [
+        { id: 1, name: "Honey & Sesame", desc: "Wild thyme honey, toasted sesame, sea salt — ancient Mediterranean tradition.", price: "$12.90", img: "pics/product-honey-sesame.jpg", category: ["bestseller", "sweet"], badge: "Bestseller", badgeClass: "badge-gold" },
+        { id: 2, name: "Olive & Rosemary", desc: "Extra virgin olive oil, fresh rosemary, cracked black pepper. Crisp and savory.", price: "$14.50", img: "pics/product-olive-rosemary.jpg", category: ["savory"], badge: null, badgeClass: "" },
+        { id: 3, name: "Fig & Walnut", desc: "Dried Djerba figs, crushed walnuts, cinnamon, orange blossom water.", price: "$16.90", img: "pics/1.jpg", category: ["sweet", "bestseller"], badge: "Bestseller", badgeClass: "badge-gold" },
+        { id: 4, name: "Spiced Orange", desc: "Orange zest, cloves, star anise — inspired by Tunisian spice routes.", price: "$15.90", img: "pics/product-spiced-orange.jpg", category: ["sweet", "new"], badge: "New", badgeClass: "badge-terra" },
+        { id: 5, name: "Date & Almond", desc: "Medjool dates, toasted almonds, a hint of mastic — a true oasis treat.", price: "$18.50", img: "pics/date-almond.jpg", category: ["sweet", "bestseller"], badge: "Limited", badgeClass: "badge-gold" },
+        { id: 6, name: "Carob & Coconut", desc: "Wild carob powder, shredded coconut, vanilla. Naturally sweet & vegan.", price: "$13.90", img: "pics/carob-coconut.jpg", category: ["sweet", "new"], badge: "New", badgeClass: "badge-terra" },
+        { id: 7, name: "Pistachio & Rose", desc: "Crushed pistachios, organic rose petals, a touch of honey.", price: "$19.90", img: "pics/pistachio-rose.jpg", category: ["sweet"], badge: null, badgeClass: "" },
+        { id: 8, name: "Saffron & Cardamom", desc: "Premium saffron, green cardamom, dates — luxurious and aromatic.", price: "$22.00", img: "pics/saffron-cardamom.jpg", category: ["sweet", "bestseller"], badge: "Bestseller", badgeClass: "badge-gold" },
+        { id: 9, name: "Zaatar & Olive", desc: "Wild zaatar, koroneiki olives, sumac. Savory & herbaceous.", price: "$14.90", img: "pics/zaatar-olive.jpg", category: ["savory", "new"], badge: "New", badgeClass: "badge-terra" },
+        { id: 10, name: "Harissa & Cheese", desc: "Mild Tunisian harissa, aged goat cheese — bold and creamy.", price: "$15.90", img: "pics/harissa-cheese.jpg", category: ["savory"], badge: null, badgeClass: "" }
+    ];
+
+    let currentCartCount = 0;
+
+    // Helper to render products based on selected category
+    let activeCategory = "all";
+    const productsGrid = document.getElementById("productsGrid");
+
+    function renderProducts() {
+        const filtered = activeCategory === "all" ? allProducts : allProducts.filter(p => p.category.includes(activeCategory));
+        productsGrid.innerHTML = filtered.map(product => `
+        <div class="product-card fade-in">
+          <div class="product-img">
+            <img src="${product.img}" alt="${product.name}" loading="lazy" onerror="this.src='pics/placeholder.jpg'">
+            ${product.badge ? `<span class="product-badge ${product.badgeClass}">${product.badge}</span>` : ''}
+          </div>
+          <div class="product-body">
+            <h3 class="product-name-shine">${product.name}</h3>
+            <p>${product.desc}</p>
+            <div class="product-footer">
+              <span class="product-price">${product.price} / 8 pcs</span>
+              <button class="pc-add" type="button" aria-label="Add to cart">🛒</button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+        // Re-attach cart button events + fade-in observer for new cards
+        document.querySelectorAll(".pc-add").forEach(btn => {
+            btn.addEventListener("click", function () {
+                const original = this.innerHTML;
+                this.innerHTML = "✓";
+                this.style.cssText = "background:var(--green);color:white;transform:scale(1.12)";
+                setTimeout(() => { this.innerHTML = original; this.style.cssText = ""; }, 1400);
+
+                currentCartCount++;
+                const cartCountEl = document.getElementById("cartCount");
+                if (cartCountEl) {
+                    cartCountEl.textContent = currentCartCount;
+                    cartCountEl.style.transform = "scale(1.3)";
+                    setTimeout(() => cartCountEl.style.transform = "scale(1)", 200);
+                }
+
+                const cartModalCountEl = document.getElementById("cartModalCount");
+                if (cartModalCountEl) {
+                    cartModalCountEl.textContent = currentCartCount;
+                }
+            });
+        });
+        // Observe new cards for fade-in
+        document.querySelectorAll(".product-card").forEach(el => fadeObserver.observe(el));
+    }
+
+    // Filter buttons logic
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeCategory = btn.getAttribute("data-category");
+            renderProducts();
+        });
+    });
+
+    // ---------- GLOBAL SCRIPT FROM HOMEPAGE (navbar, dark mode, intersection observer) ----------
+    const navbar = document.getElementById("navbar");
+    function updateNavbar() { if (navbar) navbar.classList.toggle("scrolled", window.scrollY > 60); }
+    window.addEventListener("scroll", updateNavbar, { passive: true });
+    updateNavbar();
+
+    // Dark mode toggle
+    const toggle = document.getElementById("holo-toggle");
+    const THEME_KEY = "bena-theme";
+    function setTheme(theme) {
+        document.body.classList.toggle("dark", theme === "dark");
+        if (toggle) toggle.checked = theme === "dark";
+    }
+    const saved = localStorage.getItem(THEME_KEY);
+    setTheme(saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+    toggle?.addEventListener("change", () => {
+        const t = toggle.checked ? "dark" : "light";
+        setTheme(t);
+        localStorage.setItem(THEME_KEY, t);
+    });
+
+    // Intersection Observer for fade-in & slide-in
+    const fadeObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                fadeObserver.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".fade-in, .slide-in-left").forEach(el => fadeObserver.observe(el));
+
+    // initial render
+    renderProducts();
+
+    // Floating cart modal logic
+    const floatingCartBtn = document.getElementById("floatingCartBtn");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const cartClose = document.getElementById("cartClose");
+
+    if (floatingCartBtn && cartOverlay) {
+        floatingCartBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            cartOverlay.classList.add("active");
+        });
+
+        cartClose?.addEventListener("click", () => {
+            cartOverlay.classList.remove("active");
+        });
+
+        cartOverlay.addEventListener("click", (e) => {
+            if (e.target === cartOverlay) {
+                cartOverlay.classList.remove("active");
+            }
+        });
+    }
+</script>
+</body>
+
+</html>
